@@ -1,16 +1,11 @@
 on:
   schedule:
     - cron:  '0/5 * * * *' # 8am daily. Ref https://crontab.guru/examples.html
-name: Scrape Data
 jobs:
-  build:
-    name: Build
+  wget:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master # check out the repo this action is in, so that you have all prior data
     - name: wget
       uses: wei/wget@v1
       with:
-        args: -O ciccio.csv https://docs.google.com/spreadsheets/d/e/2PACX-1vSoP79r_KG6CSuIF6Woik3c8o54B_K8EPDYgI_zpPehuYydjNztNzLAPqGwpAoHn6uGLE2_J7zy1Lwa/pub?gid=1484863998&single=true&output=csv
-    - name: Scrape
-      run:  git config --local user.name "GitHub Action";git add ciccio.csv;git commit -m "Aggiorno csv" && git push
+        args: -O ciccio.csv "https://docs.google.com/spreadsheets/d/e/2PACX-1vSoP79r_KG6CSuIF6Woik3c8o54B_K8EPDYgI_zpPehuYydjNztNzLAPqGwpAoHn6uGLE2_J7zy1Lwa/pub?gid=1484863998&single=true&output=csv"
