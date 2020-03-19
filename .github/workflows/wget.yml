@@ -9,3 +9,7 @@ jobs:
       uses: wei/wget@v1
       with:
         args: -O ciccio.csv https://docs.google.com/spreadsheets/d/e/2PACX-1vSoP79r_KG6CSuIF6Woik3c8o54B_K8EPDYgI_zpPehuYydjNztNzLAPqGwpAoHn6uGLE2_J7zy1Lwa/pub?gid=1484863998&single=true&output=csv
+run:
+    git config --local user.name "GitHub Action"
+    git add ciccio.csv
+    git commit -m "Aggiorno csv" && git push
