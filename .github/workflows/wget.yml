@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron:  '/3 * * * *'
+    - cron:  '*/2 * * * *'
 jobs:
   wget:
     runs-on: ubuntu-latest
