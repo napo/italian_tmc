@@ -5,7 +5,20 @@ jobs:
   wget:
     runs-on: ubuntu-latest
     steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - working-directory: data/
     - name: wget
       uses: wei/wget@v1
       with:
         args: -O ciccio.csv "https://docs.google.com/spreadsheets/d/e/2PACX-1vSoP79r_KG6CSuIF6Woik3c8o54B_K8EPDYgI_zpPehuYydjNztNzLAPqGwpAoHn6uGLE2_J7zy1Lwa/pub?gid=1484863998&single=true&output=csv"
+    - name: action-push
+      uses: ludeeus/action-push@0.0.1
+    - name: Simple commit
+      uses: zwaldowski/git-commit-action@v1
+      with:
+        # Commit message
+        commit_message: "update"
+        author_name: "GitHub Action"
+    - name: action-push
+      uses: ludeeus/action-push@0.0.1
