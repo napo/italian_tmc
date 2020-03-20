@@ -18,5 +18,8 @@ jobs:
         # Commit message
         commit_message: "update"
         author_name: "GitHub Action"
+        author_email: actions@github.com
     - name: action-push
       uses: ludeeus/action-push@0.0.1
+
+    
