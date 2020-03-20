@@ -7,7 +7,6 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-    - working-directory: data/
     - name: wget
       uses: wei/wget@v1
       with:
